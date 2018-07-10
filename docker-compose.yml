@@ -1,0 +1,19 @@
+version: '3'
+services:
+  perl:
+    build: .
+    volumes:
+      - ./:/srv/
+    tty: true
+    command: bash
+    working_dir: /srv
+    links:
+      - v5.6
+      - v5.7
+      - v8.0
+  v5.6:
+    image: mysql:5.6
+  v5.7:
+    image: mysql:5.7
+  v8.0:
+    image: mysql:8.0
